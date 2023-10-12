@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Mecánica 14</title>
+  <title></title>
   <style>
     body {
       background-color: #212B32;
@@ -12,19 +12,6 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      margin: 0;
-    }
-
-    .loader-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .loader {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto;
     }
 
     .lds-ring {
@@ -41,10 +28,10 @@
       width: 64px;
       height: 64px;
       margin: 8px;
-      border: 6px solid #D19A2A; /* Change border color */
+      border: 6px solid #D19A2A;
       border-radius: 50%;
       animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      border-color: #D19A2A transparent transparent transparent; /* Change border color */
+      border-color: #D19A2A transparent transparent transparent;
     }
 
     .lds-ring div:nth-child(1) {
@@ -59,23 +46,22 @@
       animation-delay: -0.15s;
     }
 
-    img {
-      max-width: 50%;
-      height: auto;
-      margin-top: 20px; /* Add some spacing */
+    @keyframes lds-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
+
   </style>
 </head>
 <body>
-  <div class="loader-container">
-    <div class="loader lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <img src="https://raw.githubusercontent.com/ignacioloncon/M14-QRs/main/Logo%20M14.svg" alt="Logo M14">
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  <br>
+  <br>
+  <img src="https://raw.githubusercontent.com/ignacioloncon/M14-QRs/main/Logo%20M14.svg" alt="Logo M14" style="max-width: 50%; height: auto;">
   <script>
     const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbyX02usNY-N_6rEiegmsE7VnK7OjlJEeh4QEP62IKNV0XW2j3DQHPhDijqW568FmUCe/exec";
 
@@ -87,6 +73,7 @@
         .then(r => r.text())
         .then((r) => {
           console.log(r);
+          //document.write(r);
           if (r) {
             document.location.replace(r);
           }
